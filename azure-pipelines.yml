@@ -1,0 +1,20 @@
+#### Modelo de pipeline fazendo deploy em um app service da azure######
+
+#A Trigger é ativada quando se faz um commit na branch main
+trigger:
+  - main
+# inicia o job
+jobs:
+  - job: job1
+  #seleciona uma imagem ubuntu com a ultima versão como pool
+    pool:
+      vmImage: 'ubuntu-latest'
+    steps:
+   #faz deploy em um app service   
+      - task: AzureRmWebAppDeployment@4
+        inputs:
+          ConnectionType: 'AzureRM'
+          azureSubscription: 'Assinatura do Visual Studio Enterprise – MPN(2cf1bb5a-013b-4fad-b639-e94d7cc8e474)'
+          appType: 'webApp'
+          WebAppName: 'appservice2021'
+          packageForLinux: '.'
