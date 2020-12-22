@@ -1,4 +1,4 @@
-#### Modelo de pipeline fazendo deploy em um app service da azure######
+#### Modelo de pipeline fazendo deploy em um app service da azure.######
 
 #A Trigger é ativada quando se faz um commit na branch main
 trigger:
